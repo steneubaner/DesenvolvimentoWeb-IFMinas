@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Semana 3 - Calculadora</title>
+    <link rel="icon"
+        href="https://portal.ifsuldeminas.edu.br/images/PDFs/comunicacao/logotipos/ifsuldeminas/IFSULDEMINAS_vertical.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+
+    <!--Estilo e Aparecia-->
+    <style>
+        body {
+            margin-top: auto;
+            background-color: rgb(202, 202, 202);
+            font-size: 15px;
+            position: absolute;
+            width: 100%;
+            object-position: center;
+        }
+
+        fieldset {
+            display: inline-block;
+            position: relative;
+            top: 90px;
+            background-color: rgb(3, 80, 22);
+            color: aliceblue;
+            border-radius: 20%;
+            line-height: 150%;
+        }
+
+        #fotocabecalho {
+
+            position: relative;
+            margin-top: auto;
+            text-align: center;
+            margin-left: 0%;
+            height: 70px;
+            align-items: center;
+
+        }
+
+        legend {
+            text-transform: uppercase;
+            font-size: 12px;
+            text-decoration: rgb(4, 165, 55);
+            font-family: 'Philosopher', sans-serif;
+            line-height: 130%;
+        }
+
+        code {
+            position: relative;
+            top: 170px;
+        }
+    </style>
+
+    <!--JavaScript-->
+    <script type="text/javascript">
+        alert("Bem-vindo a minha Calculadora! Por favor insira dois valores nos campos correspondentes, escolha a operação que deseja utilizar e clique no botão *Calcular* para ter o seu resultado!")
+
+        /*FUNÇÃO - IF -*/
+        function calcular(oper) {
+            var valor1 = document.calcform.valor1.value;
+            var valor2 = document.calcform.valor2.value;
+
+            if (oper == "somar") {
+                var res = parseInt(valor1) + parseInt(valor2);
+            } else {
+                if (oper == "subtrair") {
+                    var res = valor1 - valor2;
+                } else {
+                    if (oper == "multiplicar") {
+                        var res = valor1 * valor2;
+                    } else {
+                        var res = valor1 / valor2;
+                    }
+                }
+            }
+
+            document.calcform.res.value = res;
+        }
+
+
+        /*FUNÇÃO - SWICHT -*/
+        function calcularswitch(oper) {
+            var valor1 = document.calcform.valor1.value;
+            var valor2 = document.calcform.valor2.value;
+
+            switch (oper) {
+
+                case "somar":
+                    document.getElementById("res").value = parseFloat(valor1) + parseFloat(valor2);
+
+                    break;
+
+                case "subtrair":
+                    document.getElementById("res").value = parseFloat(valor1) - parseFloat(valor2);
+                    break;
+
+                case "multiplicar":
+                    document.getElementById("res").value = parseFloat(valor1) * parseFloat(valor2);
+                    break;
+
+                case "dividir":
+                    document.getElementById("res").value = parseFloat(valor1) / parseFloat(valor2);
+                    break;
+
+            }
+
+        }
+
+    </script>
+</head>
+
+<!--Estrutura HTML-->
+
+<body>
+    <center>
+        <p><img id="fotocabecalho"
+                src="https://portal.tco.ifsuldeminas.edu.br/images/Campus/marcaoficial/IFSULDEMINAS-aplica%C3%A7%C3%B5es-horizontais-02.png"
+                alt="Foto IFSulMinas" />
+    </center>
+    </p>
+    <br>
+    <form name="calcform" method="post" action="">
+        <center>
+            <fieldset>
+                <center>
+                    <br>
+                    <legend>Minha Primeira<strong><br>Calculadora</strong></legend>
+                </center>
+                <br>
+                <label for="valor1">Informe o <strong>primeiro</strong> número:</label>
+                <input type="text" name="valor1" id="valor1" /><br><br>
+
+                <label for="valor2"> Informe o <strong>segundo</strong> número:</label>
+                <input type="text" name="valor2" id="valor2" />
+                <br>
+                <br>
+                <label for="oper">Escolha a <strong>operação:</strong></label>
+                <select name="oper" id="oper">
+                    <option value="somar">Somar</option>
+                    <option value="subtrair">Subtrair</option>
+                    <option value="multiplicar">Multiplicar</option>
+                    <option value="dividir">Dividir</option>
+                </select>
+                <br>
+                <br>
+                <br>
+                <label for="res">Resultado:</label>
+                <input type="text" name="res" id="res">
+                <br>
+                <br>
+                <input type="button" value="Calcular" class="botao" onClick="calcular(document.calcform.oper.value)">
+                <br>
+                <br>
+                <input type="button" value="Calcular - Switch" class="botao"
+                    onclick="calcularswitch(document.calcform.oper.value)">
+            </fieldset>
+        </center>
+    </form>
+
+    <code>Desenvolvido por Stéfany Neubaner - 2022 </code>
+</body>
+
+
+</html>
